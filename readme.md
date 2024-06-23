@@ -8,7 +8,7 @@ Implementação de Zernike Moments para Extração de Características de Imagen
 
 ## Descrição do(s) Descritor(es) Implementado
 ###  O Zernike Moments
-O Zernike Moments é um descritors baseado em forma que captura características geométricas das imagens. Não varia com a rotação, escala nem translação, o que o torna útil para o reconhecimento de padrões. O Zernike Moments é calculado a partir de polinômios ortogonais e fornece uma representação precisa da forma dos objetos nas imagens.
+O Zernike Moments é um descritor baseado em forma que captura características geométricas das imagens. Não varia com a rotação, escala nem translação, o que o torna útil para o reconhecimento de padrões. O Zernike Moments é calculado a partir de polinômios ortogonais e fornece uma representação precisa da forma dos objetos nas imagens.
 
 ## Repositório do Projeto
 [Link do repositório do projeto](https://github.com/AdeWyse/classificacao)
