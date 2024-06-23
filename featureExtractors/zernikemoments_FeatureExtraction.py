@@ -47,12 +47,12 @@ def extractZernikeMomentsFeatures(images):
     bar = Bar('[INFO] Extracting Zernike moments features...', max=len(images), suffix='%(index)d/%(max)d Duration:%(elapsed)ds')
     featuresList = []
     for image in images:
-        if len(image.shape) > 2:
-            image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        blur_image = cv2.medianBlur(image, 3)
-        _, binary_image = cv2.threshold(blur_image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-        radius = min(binary_image.shape) // 2 - 1 
-        features = mh.features.zernike_moments(binary_image, radius)
+        if len(image.shape) > 2: # checa numero de canais, se maior que dois precisa converter
+            image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) # Converte para grascale
+        blur_image = cv2.medianBlur(image, 3) # Redução de ruido
+        _, binary_image = cv2.threshold(blur_image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU) #separa formas usando otsu
+        radius = min(binary_image.shape) // 2 - 1 # Calcula a região onde vai ser aplicado o zernike moments. radius maiores para grandes e radius menores para areas pequenas com mais detalhe
+        features = mh.features.zernike_moments(binary_image, radius) #encontra caracteristica utilizando zernike moments
         featuresList.append(features)
         bar.next()
     bar.finish()
